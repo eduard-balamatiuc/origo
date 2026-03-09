@@ -1,4 +1,4 @@
-# The AI Field
+# Knowledge
 
 A knowledge base that demystifies the field of AI — explaining the terms, cutting through the buzzwords, and showing what's actually happening behind the scenes.
 
