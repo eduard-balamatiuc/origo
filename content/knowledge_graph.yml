@@ -1,0 +1,1327 @@
+# =============================================================================
+# AI Engineering Course - Knowledge Graph
+# =============================================================================
+#
+# HOW TO USE:
+#   - Each node represents a concept to explain in the course
+#   - status: "covered" | "mentioned" | "todo" | "planned"
+#       covered   = explained in detail in the content
+#       mentioned = referenced but not yet explained
+#       todo      = identified as needed but not yet written
+#       planned   = decided to include, outline exists
+#   - depth: "beginner" | "awareness" | "intermediate"
+#       beginner   = core concept, must understand
+#       awareness  = should know it exists and what it does
+#       intermediate = deeper detail, optional for target audience
+#   - Each edge connects two nodes with a relation type
+#
+# RELATION TYPES:
+#   is_subfield_of  - X is a subfield/subdomain of Y
+#   is_type_of      - X is a specific type/variant of Y
+#   is_component_of - X is a part/component of Y
+#   requires        - X requires/depends on Y
+#   uses            - X uses Y in its process
+#   produces        - X produces/outputs Y
+#   contrasts_with  - X is the opposite/contrast of Y
+#   is_example_of   - X is a real-world example of Y
+#   evolves_into    - X evolved/scaled into Y
+#   applies_to      - X applies to / works with Y
+#   enables         - X makes Y possible
+#   intersects_with - X overlaps with Y
+# =============================================================================
+
+# =============================================================================
+# NODES (Concepts)
+# =============================================================================
+nodes:
+
+  # ---------------------------------------------------------------------------
+  # LAYER 1: Foundation Concepts
+  # ---------------------------------------------------------------------------
+  - id: ai
+    name: Artificial Intelligence (AI)
+    description: >
+      The broad field encompassing systems that can perform tasks typically
+      requiring human intelligence. Currently most commonly associated with
+      models like ChatGPT, Gemini, Claude.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: model
+    name: Model
+    description: >
+      A mathematical function that takes input and produces output.
+      Simplest analogy: y = a * x + b. The function/architecture is the
+      blueprint, the parameters define its specific behavior.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: model_parameters
+    name: Model Parameters / Weights
+    description: >
+      The learnable values inside a model (like 'a' and 'b' in y=ax+b).
+      Analogous to material choices in a building - they define how the
+      model behaves. Adjusted during training.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: model_architecture
+    name: Model Architecture
+    description: >
+      The blueprint/structure of a model - how it's organized and what
+      operations it performs. Different architectures suit different tasks
+      (like a muscular body for lifting vs running).
+    status: covered
+    depth: beginner
+    module: intro
+
+  # ---------------------------------------------------------------------------
+  # LAYER 2: Training Concepts
+  # ---------------------------------------------------------------------------
+  - id: training
+    name: Training
+    description: >
+      The process of fitting a model to a specific use case by adjusting
+      its parameters. An iterative process of prediction, evaluation,
+      and parameter updates.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: supervised_learning
+    name: Supervised Learning
+    description: >
+      Training where you have both the task (input) and the known solution
+      (expected output). Goal: find parameters that map inputs to known outputs.
+      Example: house pricing based on historical market data.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: unsupervised_learning
+    name: Unsupervised Learning
+    description: >
+      Training where you only have the task/data but no known solution.
+      Goal: discover patterns, groups, or structure in the data.
+      Example: customer segmentation in marketplaces.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: data
+    name: Data
+    description: >
+      The raw information used to train models. Required for both supervised
+      and unsupervised learning. Quality matters - bad data leads to bad
+      models (garbage in, garbage out).
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: data_quality
+    name: Data Quality
+    description: >
+      The accuracy and relevance of training data. Like teaching a student
+      with correct examples vs wrong ones. Bad data confuses the model.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: data_splitting
+    name: Data Splitting (Train / Validation / Test)
+    description: >
+      Dividing data into 3 sets: training (largest portion), validation
+      (flash tests during training), and test (final exam). No overlap
+      between sets. Distribution of examples should be balanced across all sets.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: cost_function
+    name: Cost Function / Loss Function
+    description: >
+      Measures how close the model's prediction is to the expected value.
+      Lower cost = better prediction. Guides the training process.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: gradient_descent
+    name: Gradient Descent
+    description: >
+      Optimization algorithm that uses the cost function to update model
+      weights. Traces back through model operations to understand how
+      to adjust parameters for better predictions.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: overfitting
+    name: Overfitting
+    description: >
+      When a model memorizes the training data instead of learning general
+      patterns. Like memorizing answers instead of understanding concepts.
+      More diverse data helps prevent it.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: underfitting
+    name: Underfitting
+    description: >
+      When a model fails to learn patterns from the data. Not adapting
+      well, no logical connections formed. The opposite extreme of overfitting.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: numerical_representation
+    name: Numerical Representation
+    description: >
+      Everything must be converted to numbers for computers to process.
+      Any data type (text, images, audio) can be represented numerically.
+    status: covered
+    depth: awareness
+    module: intro
+
+  # ---------------------------------------------------------------------------
+  # LAYER 3: AI Subfields
+  # ---------------------------------------------------------------------------
+  - id: machine_learning
+    name: Machine Learning (ML)
+    description: >
+      Subfield of AI focused on using data to learn behaviors, patterns,
+      and relationships. The foundation for most modern AI approaches.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: deep_learning
+    name: Deep Learning (DL)
+    description: >
+      Subfield of ML using complex architectures (neural networks with
+      many layers) to learn patterns too complex for traditional ML.
+      Requires much more data for training.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: computer_vision
+    name: Computer Vision (CV)
+    description: >
+      Field dealing with visual data - processing images, videos.
+      Everything related to the visual side of AI.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: nlp
+    name: Natural Language Processing (NLP)
+    description: >
+      Field dealing with textual information - understanding, generating,
+      and processing human language.
+    status: covered
+    depth: awareness
+    module: intro
+
+  # ---------------------------------------------------------------------------
+  # LAYER 4: Data Roles & Fields
+  # ---------------------------------------------------------------------------
+  - id: data_engineering
+    name: Data Engineering
+    description: >
+      Managing, cleaning, and preparing data pipelines. Handles the
+      infrastructure needed to make data usable for AI/ML.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: data_analysis
+    name: Data Analysis
+    description: >
+      Drawing conclusions and insights from data. Making data
+      understandable and actionable for decision-making.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: data_science
+    name: Data Science
+    description: >
+      Combining data and models to produce business value. Can be viewed
+      as the "full stack engineer" of the AI field.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: big_data
+    name: Big Data
+    description: >
+      Dealing with data at a scale where simple tools no longer work.
+      Requires specialized infrastructure and techniques.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: ai_engineering
+    name: AI Engineering
+    description: >
+      The emerging field specifically focused on building applications
+      with LLMs. What most people now refer to when they say
+      "working with AI."
+    status: covered
+    depth: beginner
+    module: intro
+
+  # ---------------------------------------------------------------------------
+  # LAYER 5: LLMs & Related
+  # ---------------------------------------------------------------------------
+  - id: llm
+    name: Large Language Models (LLMs)
+    description: >
+      Models built on transformer architecture, trained on massive text
+      data. Predict the next token given context. Grew from millions to
+      hundreds of billions of parameters. Examples: ChatGPT, Gemini, Claude.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: slm
+    name: Small Language Models (SLMs)
+    description: >
+      Language models small enough to run on general-purpose hardware
+      (laptops, phones). The "small" label is relative and shifts over
+      time as hardware improves.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: transformer
+    name: Transformer Architecture
+    description: >
+      The model architecture behind LLMs. Showed exceptional results
+      for text processing. The foundation that enabled the LLM revolution.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: tokens
+    name: Tokens
+    description: >
+      The actual units LLMs predict - not exactly words but sub-word
+      pieces. Mentioned but not yet explained in detail.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: next_token_prediction
+    name: Next Token Prediction
+    description: >
+      The core task LLMs solve: given all previous text, predict what
+      the next token should be. Done one token at a time.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: scaling_laws
+    name: Scaling Laws
+    description: >
+      The observation that language models keep improving with more data
+      and larger architectures, unlike previous models that hit a sweet
+      spot. Key driver behind the LLM revolution.
+    status: covered
+    depth: awareness
+    module: intro
+
+  # ---------------------------------------------------------------------------
+  # LAYER 6: Concepts Not Yet Covered (likely needed for the course)
+  # ---------------------------------------------------------------------------
+  - id: inference
+    name: Inference
+    description: >
+      Using a trained model to make predictions on new data. The
+      "production" phase after training is complete.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: fine_tuning
+    name: Fine-Tuning
+    description: >
+      Taking a pre-trained model and further training it on specific
+      data for a particular use case.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: prompt_engineering
+    name: Prompt Engineering
+    description: >
+      The art/skill of crafting inputs (prompts) to get desired outputs
+      from LLMs. A key skill in AI Engineering.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: embeddings
+    name: Embeddings
+    description: >
+      Numerical vector representations of data (text, images, etc.)
+      that capture semantic meaning. Similar items have similar embeddings.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: rag
+    name: RAG (Retrieval-Augmented Generation)
+    description: >
+      Pattern where LLMs retrieve relevant information from external
+      sources before generating a response. Reduces hallucinations.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: hallucination
+    name: Hallucination
+    description: >
+      When an LLM generates confident-sounding but factually incorrect
+      information. A key limitation to understand.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: context_window
+    name: Context Window
+    description: >
+      The maximum amount of text an LLM can process at once.
+      Determines how much information you can provide in a single interaction.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: temperature
+    name: Temperature
+    description: >
+      Parameter controlling randomness in LLM outputs. Low = more
+      deterministic, high = more creative/random.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: api
+    name: API (Application Programming Interface)
+    description: >
+      How software communicates with LLMs programmatically. The bridge
+      between your application and the model.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: agents
+    name: AI Agents
+    description: >
+      Systems where LLMs can take actions, use tools, and make decisions
+      autonomously. An emerging pattern in AI Engineering.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: tokenization
+    name: Tokenization
+    description: >
+      The process of breaking text into tokens (sub-word units) that
+      the model can process. Directly related to how LLMs "see" text.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: attention_mechanism
+    name: Attention Mechanism
+    description: >
+      Core component of the transformer architecture. Allows the model to
+      focus on relevant parts of the input when making predictions.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: pre_training
+    name: Pre-Training
+    description: >
+      The initial large-scale training phase where LLMs learn general
+      language understanding from massive datasets.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: neural_network
+    name: Neural Network
+    description: >
+      Model architecture inspired by the brain, with layers of
+      interconnected "neurons." The building block of deep learning.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: chatgpt_gemini_claude
+    name: ChatGPT / Gemini / Claude
+    description: >
+      The most well-known LLM products. ChatGPT by OpenAI, Gemini by
+      Google, Claude by Anthropic. What most people think of when they hear "AI."
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: open_vs_closed_models
+    name: Open vs Closed Models
+    description: >
+      Open models (like Llama, Mistral) can be downloaded and run locally.
+      Closed models (like GPT-4, Claude) are only accessible via API.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: gpu
+    name: GPU (Graphics Processing Unit)
+    description: >
+      The hardware that makes training and running AI models feasible.
+      Why AI needs specialized hardware.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: benchmark
+    name: Benchmarks
+    description: >
+      Standardized tests used to compare model performance. How we
+      measure which model is "better" at different tasks.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: multimodal
+    name: Multimodal Models
+    description: >
+      Models that can process multiple types of data (text, images, audio,
+      video) in a single architecture.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: tool_use
+    name: Tool Use / Function Calling
+    description: >
+      The ability of LLMs to call external tools (search, calculators,
+      APIs) to accomplish tasks they can't do alone.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: system_prompt
+    name: System Prompt
+    description: >
+      Instructions given to an LLM that define its behavior, personality,
+      and constraints for a conversation.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: guardrails
+    name: Guardrails / Safety
+    description: >
+      Techniques to prevent LLMs from producing harmful, biased, or
+      inappropriate outputs. Important for production use.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: cost_pricing
+    name: Cost & Pricing (Tokens/API)
+    description: >
+      How LLM usage is priced - typically per token. Understanding
+      costs is critical for building AI applications.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: latency
+    name: Latency
+    description: >
+      How long it takes for a model to respond. Trade-off between
+      model capability and response speed.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: evaluation
+    name: Evaluation (LLM outputs)
+    description: >
+      How to assess whether an LLM's output is good. Different from
+      traditional model evaluation - more subjective, harder to automate.
+    status: covered
+    depth: awareness
+    module: intro
+
+  # ---------------------------------------------------------------------------
+  # LAYER 2 ADDITIONS: Training Concepts
+  # ---------------------------------------------------------------------------
+  - id: reinforcement_learning
+    name: Reinforcement Learning
+    description: >
+      Training paradigm where a model learns through trial and error,
+      receiving rewards for good actions and penalties for bad ones.
+      The third major learning type alongside supervised and unsupervised.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: transfer_learning
+    name: Transfer Learning
+    description: >
+      The concept that knowledge learned from one task can be reused for
+      another. This is what makes pre-training + fine-tuning work — the
+      model doesn't start from scratch each time.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: synthetic_data
+    name: Synthetic Data
+    description: >
+      Data generated artificially, often by AI itself, rather than collected
+      from the real world. Used when real data is scarce, expensive, or
+      has privacy concerns.
+    status: covered
+    depth: awareness
+    module: intro
+
+  # ---------------------------------------------------------------------------
+  # LAYER 4 ADDITIONS: LLMs
+  # ---------------------------------------------------------------------------
+  - id: knowledge_distillation
+    name: Knowledge Distillation
+    description: >
+      A technique where a smaller "student" model learns to imitate a
+      larger "teacher" model. This is how many SLMs get surprisingly
+      capable — they learn from the outputs of bigger models.
+    status: covered
+    depth: awareness
+    module: intro
+
+  # ---------------------------------------------------------------------------
+  # LAYER 5 ADDITIONS: AI Engineering
+  # ---------------------------------------------------------------------------
+  - id: rlhf
+    name: RLHF (Reinforcement Learning from Human Feedback)
+    description: >
+      The technique that turns a raw pre-trained text predictor into a
+      helpful chatbot. Humans rate model outputs, a reward model is
+      trained, then the LLM is optimized to produce higher-rated responses.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: chain_of_thought
+    name: Chain of Thought
+    description: >
+      A technique (and built-in capability in newer models) where LLMs
+      reason step by step instead of jumping to an answer. Each token
+      generated is a step of "thinking."
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: memory
+    name: Memory
+    description: >
+      LLMs don't actually "remember" anything — each request is stateless.
+      Conversation history works by re-sending previous messages, and
+      "memory" features store facts externally for injection.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: vector_databases
+    name: Vector Databases
+    description: >
+      Specialized databases for storing embeddings and searching by
+      meaning/similarity rather than exact matches. The infrastructure
+      that makes RAG retrieval possible.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: semantic_search
+    name: Semantic Search
+    description: >
+      Search that matches by meaning, not keywords. Powered by embeddings —
+      both the query and documents are converted to vectors and the closest
+      matches are returned.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: structured_outputs
+    name: Structured Outputs
+    description: >
+      Constraining LLM responses to follow a specific format (like JSON)
+      so software can reliably parse and use the output. What makes LLMs
+      usable in real software pipelines.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: agentic_workflows
+    name: Agentic Workflows
+    description: >
+      Design patterns for building complex AI applications that chain
+      multiple LLM calls together. Includes prompt chaining, routing,
+      orchestrator-worker, and evaluator-optimizer patterns.
+    status: covered
+    depth: awareness
+    module: intro
+
+  # ---------------------------------------------------------------------------
+  # LAYER 6: Ecosystem & Society
+  # ---------------------------------------------------------------------------
+  - id: image_generation
+    name: Image Generation
+    description: >
+      AI systems that create images from text descriptions using diffusion
+      models. Products include DALL-E, Midjourney, and Stable Diffusion.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: bias_in_ai
+    name: Bias in AI
+    description: >
+      The tendency of AI models to inherit and amplify biases present in
+      their training data. A systemic issue that's different from simple
+      output filtering.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: ai_regulation
+    name: AI Regulation
+    description: >
+      The evolving legal frameworks governing AI use. Includes the EU AI
+      Act (risk-based classification), US executive orders, and China's
+      topic-specific regulations.
+    status: covered
+    depth: beginner
+    module: intro
+
+  - id: agi
+    name: AGI (Artificial General Intelligence)
+    description: >
+      Hypothetical AI that could perform any intellectual task a human can.
+      Does not exist yet. There is no consensus on what it means exactly
+      or when (if ever) it will arrive.
+    status: covered
+    depth: awareness
+    module: intro
+
+  # ---------------------------------------------------------------------------
+  # LAYER EXTRA ADDITIONS: Architecture & Optimization
+  # ---------------------------------------------------------------------------
+  - id: batch_processing
+    name: Batch Processing
+    description: >
+      Sending non-urgent API requests in bulk at a discount (typically 50% off).
+      Providers process them during off-peak hours and return results within 24 hours.
+    status: covered
+    depth: awareness
+    module: intro
+
+  - id: quantization
+    name: Quantization
+    description: >
+      Making models smaller and faster by reducing the precision of their
+      parameter numbers. Enables running LLMs on laptops and phones with
+      minimal quality loss.
+    status: covered
+    depth: awareness
+    module: intro
+
+# =============================================================================
+# EDGES (Relations between concepts)
+# =============================================================================
+edges:
+
+  # --- Structural / Taxonomy ---
+  - source: machine_learning
+    target: ai
+    relation: is_subfield_of
+
+  - source: deep_learning
+    target: machine_learning
+    relation: is_subfield_of
+
+  - source: computer_vision
+    target: ai
+    relation: is_subfield_of
+
+  - source: nlp
+    target: ai
+    relation: is_subfield_of
+
+  - source: ai_engineering
+    target: ai
+    relation: is_subfield_of
+
+  - source: data_engineering
+    target: ai
+    relation: intersects_with
+
+  - source: data_analysis
+    target: ai
+    relation: intersects_with
+
+  - source: data_science
+    target: ai
+    relation: intersects_with
+
+  - source: big_data
+    target: data_engineering
+    relation: evolves_into
+
+  - source: supervised_learning
+    target: training
+    relation: is_type_of
+
+  - source: unsupervised_learning
+    target: training
+    relation: is_type_of
+
+  - source: llm
+    target: deep_learning
+    relation: is_subfield_of
+
+  - source: slm
+    target: llm
+    relation: is_type_of
+
+  - source: neural_network
+    target: deep_learning
+    relation: is_component_of
+
+  # --- Components ---
+  - source: model_parameters
+    target: model
+    relation: is_component_of
+
+  - source: model_architecture
+    target: model
+    relation: is_component_of
+
+  - source: transformer
+    target: model_architecture
+    relation: is_type_of
+
+  - source: attention_mechanism
+    target: transformer
+    relation: is_component_of
+
+  - source: tokens
+    target: llm
+    relation: is_component_of
+
+  - source: tokenization
+    target: tokens
+    relation: produces
+
+  - source: context_window
+    target: llm
+    relation: is_component_of
+
+  # --- Training Process ---
+  - source: training
+    target: data
+    relation: requires
+
+  - source: training
+    target: model
+    relation: uses
+
+  - source: training
+    target: cost_function
+    relation: uses
+
+  - source: training
+    target: gradient_descent
+    relation: uses
+
+  - source: gradient_descent
+    target: cost_function
+    relation: uses
+
+  - source: training
+    target: data_splitting
+    relation: uses
+
+  - source: data_quality
+    target: data
+    relation: is_component_of
+
+  - source: training
+    target: model_parameters
+    relation: produces
+    note: "Training produces learned/updated model parameters"
+
+  - source: pre_training
+    target: training
+    relation: is_type_of
+
+  - source: fine_tuning
+    target: training
+    relation: is_type_of
+
+  # --- Overfitting / Underfitting ---
+  - source: overfitting
+    target: training
+    relation: is_component_of
+    note: "A risk/outcome during training"
+
+  - source: underfitting
+    target: training
+    relation: is_component_of
+    note: "A risk/outcome during training"
+
+  - source: overfitting
+    target: underfitting
+    relation: contrasts_with
+
+  # --- LLM Specifics ---
+  - source: llm
+    target: transformer
+    relation: uses
+
+  - source: llm
+    target: nlp
+    relation: applies_to
+
+  - source: llm
+    target: next_token_prediction
+    relation: uses
+
+  - source: next_token_prediction
+    target: tokens
+    relation: uses
+
+  - source: scaling_laws
+    target: llm
+    relation: enables
+
+  - source: numerical_representation
+    target: model
+    relation: enables
+    note: "All data must be numerical for models to process"
+
+  - source: chatgpt_gemini_claude
+    target: llm
+    relation: is_example_of
+
+  # --- AI Engineering Concepts ---
+  - source: ai_engineering
+    target: llm
+    relation: uses
+
+  - source: prompt_engineering
+    target: ai_engineering
+    relation: is_component_of
+
+  - source: rag
+    target: ai_engineering
+    relation: is_component_of
+
+  - source: agents
+    target: ai_engineering
+    relation: is_component_of
+
+  - source: tool_use
+    target: agents
+    relation: is_component_of
+
+  - source: api
+    target: ai_engineering
+    relation: enables
+
+  - source: system_prompt
+    target: prompt_engineering
+    relation: is_component_of
+
+  - source: embeddings
+    target: rag
+    relation: enables
+
+  - source: embeddings
+    target: numerical_representation
+    relation: is_type_of
+
+  # --- Inference & Production ---
+  - source: inference
+    target: training
+    relation: contrasts_with
+    note: "Training = learning, Inference = using"
+
+  - source: inference
+    target: model
+    relation: uses
+
+  - source: temperature
+    target: inference
+    relation: is_component_of
+
+  - source: hallucination
+    target: inference
+    relation: is_component_of
+    note: "A risk during inference"
+
+  - source: context_window
+    target: inference
+    relation: is_component_of
+
+  - source: guardrails
+    target: inference
+    relation: is_component_of
+
+  - source: cost_pricing
+    target: inference
+    relation: is_component_of
+
+  - source: latency
+    target: inference
+    relation: is_component_of
+
+  # --- Model Types ---
+  - source: open_vs_closed_models
+    target: llm
+    relation: is_type_of
+
+  - source: multimodal
+    target: llm
+    relation: evolves_into
+
+  # --- Hardware ---
+  - source: gpu
+    target: training
+    relation: enables
+
+  - source: gpu
+    target: inference
+    relation: enables
+
+  # --- Evaluation ---
+  - source: benchmark
+    target: evaluation
+    relation: is_component_of
+
+  - source: evaluation
+    target: model
+    relation: applies_to
+
+  # --- Real-world Examples ---
+  - source: data
+    target: data_engineering
+    relation: requires
+    note: "Data needs engineering to be usable"
+
+  # --- Reinforcement Learning ---
+  - source: reinforcement_learning
+    target: training
+    relation: is_type_of
+
+  - source: reinforcement_learning
+    target: supervised_learning
+    relation: contrasts_with
+
+  - source: reinforcement_learning
+    target: unsupervised_learning
+    relation: contrasts_with
+
+  - source: reinforcement_learning
+    target: agents
+    relation: enables
+
+  # --- Transfer Learning ---
+  - source: transfer_learning
+    target: pre_training
+    relation: enables
+
+  - source: transfer_learning
+    target: fine_tuning
+    relation: enables
+
+  - source: transfer_learning
+    target: training
+    relation: is_component_of
+
+  - source: transfer_learning
+    target: model_parameters
+    relation: uses
+
+  # --- Synthetic Data ---
+  - source: synthetic_data
+    target: data
+    relation: is_type_of
+
+  - source: synthetic_data
+    target: data_quality
+    relation: intersects_with
+
+  - source: synthetic_data
+    target: llm
+    relation: uses
+    note: "LLMs are commonly used to generate synthetic data"
+
+  - source: synthetic_data
+    target: fine_tuning
+    relation: enables
+
+  # --- Knowledge Distillation ---
+  - source: knowledge_distillation
+    target: slm
+    relation: enables
+
+  - source: knowledge_distillation
+    target: llm
+    relation: uses
+    note: "Large models serve as teachers"
+
+  - source: knowledge_distillation
+    target: training
+    relation: is_type_of
+
+  - source: knowledge_distillation
+    target: model_parameters
+    relation: uses
+
+  # --- RLHF ---
+  - source: rlhf
+    target: fine_tuning
+    relation: is_type_of
+
+  - source: rlhf
+    target: reinforcement_learning
+    relation: uses
+
+  - source: rlhf
+    target: pre_training
+    relation: requires
+    note: "RLHF happens after pre-training"
+
+  - source: rlhf
+    target: chatgpt_gemini_claude
+    relation: enables
+
+  - source: rlhf
+    target: guardrails
+    relation: enables
+
+  # --- Chain of Thought ---
+  - source: chain_of_thought
+    target: prompt_engineering
+    relation: is_component_of
+
+  - source: chain_of_thought
+    target: next_token_prediction
+    relation: uses
+
+  - source: chain_of_thought
+    target: tokens
+    relation: uses
+    note: "More reasoning = more tokens generated"
+
+  # --- Memory ---
+  - source: memory
+    target: context_window
+    relation: uses
+
+  - source: memory
+    target: system_prompt
+    relation: uses
+
+  - source: memory
+    target: tokens
+    relation: uses
+
+  - source: memory
+    target: rag
+    relation: intersects_with
+    note: "Memory injection is similar to RAG"
+
+  # --- Vector Databases ---
+  - source: vector_databases
+    target: embeddings
+    relation: uses
+
+  - source: vector_databases
+    target: rag
+    relation: enables
+
+  - source: vector_databases
+    target: semantic_search
+    relation: enables
+
+  - source: vector_databases
+    target: ai_engineering
+    relation: is_component_of
+
+  # --- Semantic Search ---
+  - source: semantic_search
+    target: embeddings
+    relation: uses
+
+  - source: semantic_search
+    target: rag
+    relation: enables
+
+  - source: semantic_search
+    target: nlp
+    relation: applies_to
+
+  # --- Structured Outputs ---
+  - source: structured_outputs
+    target: api
+    relation: is_component_of
+
+  - source: structured_outputs
+    target: tool_use
+    relation: intersects_with
+
+  - source: structured_outputs
+    target: inference
+    relation: is_component_of
+
+  # --- Agentic Workflows ---
+  - source: agentic_workflows
+    target: agents
+    relation: is_component_of
+
+  - source: agentic_workflows
+    target: prompt_engineering
+    relation: uses
+
+  - source: agentic_workflows
+    target: tool_use
+    relation: uses
+
+  - source: agentic_workflows
+    target: system_prompt
+    relation: uses
+
+  # --- Image Generation ---
+  - source: image_generation
+    target: deep_learning
+    relation: uses
+
+  - source: image_generation
+    target: computer_vision
+    relation: intersects_with
+
+  - source: image_generation
+    target: multimodal
+    relation: intersects_with
+
+  - source: image_generation
+    target: prompt_engineering
+    relation: uses
+
+  # --- Bias in AI ---
+  - source: bias_in_ai
+    target: data
+    relation: is_component_of
+    note: "Bias originates in training data"
+
+  - source: bias_in_ai
+    target: data_quality
+    relation: intersects_with
+
+  - source: bias_in_ai
+    target: training
+    relation: is_component_of
+
+  - source: bias_in_ai
+    target: guardrails
+    relation: intersects_with
+
+  - source: bias_in_ai
+    target: evaluation
+    relation: intersects_with
+
+  # --- AI Regulation ---
+  - source: ai_regulation
+    target: guardrails
+    relation: intersects_with
+
+  - source: ai_regulation
+    target: bias_in_ai
+    relation: intersects_with
+
+  - source: ai_regulation
+    target: ai
+    relation: applies_to
+
+  - source: ai_regulation
+    target: open_vs_closed_models
+    relation: applies_to
+
+  # --- AGI ---
+  - source: agi
+    target: ai
+    relation: evolves_into
+
+  - source: agi
+    target: llm
+    relation: intersects_with
+
+  - source: agi
+    target: scaling_laws
+    relation: intersects_with
+
+  - source: agi
+    target: benchmark
+    relation: intersects_with
+
+  # --- Quantization ---
+  - source: quantization
+    target: model_parameters
+    relation: applies_to
+
+  - source: quantization
+    target: slm
+    relation: enables
+
+  - source: quantization
+    target: gpu
+    relation: intersects_with
+
+  - source: quantization
+    target: inference
+    relation: enables
+
+  - source: quantization
+    target: open_vs_closed_models
+    relation: applies_to
+
+  # --- Batch Processing ---
+  - source: batch_processing
+    target: cost_pricing
+    relation: is_component_of
+
+  - source: batch_processing
+    target: api
+    relation: is_component_of
+
+  - source: batch_processing
+    target: inference
+    relation: is_type_of
+
+  - source: batch_processing
+    target: latency
+    relation: contrasts_with
+    note: "Trade latency for cost savings"
