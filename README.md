@@ -1,17 +1,24 @@
-# Quartz v4
+# The AI Field
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+A knowledge base that demystifies the field of AI — explaining the terms, cutting through the buzzwords, and showing what's actually happening behind the scenes.
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
+Check it out live: [knowledge.eduard-balamatiuc.com](https://knowledge.eduard-balamatiuc.com)
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+## Where to start
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+If you're completely new, start with the big picture:
 
-## Sponsors
+- **AI** - what artificial intelligence actually means
+- **Machine Learning** - how machines learn from data
+- **LLMs** - the large language models behind ChatGPT, Claude, and others
+- **AI Engineering** - the emerging field of building products with LLMs
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+## How this works
+
+Every concept is its own page. They're all connected via links and a graph view that shows how everything relates. There's no single "correct" order — pick what interests you and follow the links.
+
+## What you'll learn
+
+- Understand terms like "fine-tuning," "RAG," "embeddings," and "context window"
+- Get a practical sense of how AI products are built, what they cost, and where they break
+- Make better decisions about when and how to use AI in your own work
